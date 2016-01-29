@@ -84,8 +84,11 @@ define([
                     track = {
                         kind: 'captions',
                         id: metadata.trackid,
-                        data: []
+                        data: [],
                     };
+                    if (e.captionTime) {
+                        track.source = metadata.source || 'mpegts';
+                    }
                     _addTrack(track);
                     var captionsMenu = _captionsMenu();
                     this.setCaptionsList(captionsMenu);
